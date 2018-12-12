@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Songti SC Bold" rel="stylesheet">
+</head>
+<body>
+      <h1 class="tc title">Create your sonic environment</h1>
+      <div class="indexbox container clearfix" id="container">
+          <div class="leftwrap fl">
+              <ul class="leftbox1 clearfix bd1 bd2">
+                <li>
+                    <img src="./images/rain.png" data-url="1.mp3"/>
+                </li>
+                <li>
+                    <img src="./images/wind.png" data-url="2.mp3"/>
+                </li>
+                <li>
+                    <img src="./images/thunder.png" data-url="2.mp3"/>
+                </li>
+                <li>
+                    <img src="./images/sea.png">
+                </li>
+              </ul>
+              <ul class="leftbox1 clearfix ">
+                <li>
+                    <img src="./images/airplane.png">
+                </li>
+                <li>
+                    <img src="./images/boat.png">
+                </li>
+                <li>
+                    <img src="./images/train.png">
+                </li>
+                <li>
+                    <img src="./images/car.png">
+                </li>
+              </ul>    
+          </div>
+          <div class="fl rightwrap">
+              <ul class="leftbox1 clearfix ">
+                <li>
+                    <img src="./images/honeybee.png">
+                </li>
+                <li>
+                    <img src="./images/cicada.png">
+                </li>
+                <li>
+                    <img src="./images/dog.png">
+                </li>
+                <li>
+                    <img src="./images/bird.png">
+                </li>
+              </ul>
+              <ul class="leftbox1 clearfix bd3 bd4">
+                <li>
+                    <img src="./images/piano.png">
+                </li>
+                <li>
+                    <img src="./images/guzhen.png">
+                </li>
+                <li>
+                    <img src="./images/guitar.png">
+                </li>
+                <li>
+                    <img src="./images/violoncello.png">
+                </li>
+              </ul>
+          </div>
+
+          <div class="fang">
+            
+          </div>
+      </div>
+      
+      <script type="text/javascript" src="js/soundmanager2.js"></script>
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript">
+
+        var imgs = $('#container').find('img');
+        imgs.click(function() {
+          var that = $(this);
+          //imgs.removeClass('active');
+          $(this).toggleClass('active');
+          if(that.hasClass('active')) {
+            var name = that.data('url');
+            var url = 'audio/' + name;
+            
+            var audio = that.parent().find('audio');
+            if(!audio.length) {
+              that.parent().append('<audio src="'+url+'" autoplay></audio>');
+            } else {
+              audio[0].play();
+            }
+            
+          } else {
+            var audio = that.parent().find('audio');
+            audio[0].pause();
+          }
+         
+
+
+        });
+
+	   
+	  </script>
+</body>
+</html>
